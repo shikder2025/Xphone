@@ -16,6 +16,24 @@
             padding: 0;
         }
 
+        /* Animated Header */
+        .animated-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700; /* Gold Color */
+            animation: bounce 1.5s infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
         #balance-container {
             margin: 20px;
             font-size: 20px;
@@ -41,9 +59,9 @@
             width: 90%;
         }
 
-            .task:hover {
-                transform: translateY(-8px);
-            }
+        .task:hover {
+            transform: translateY(-8px);
+        }
 
         .task-detail {
             display: flex;
@@ -68,16 +86,16 @@
             margin-top: 8px;
         }
 
-            .task-data img {
-                margin-right: 8px;
-            }
+        .task-data img {
+            margin-right: 8px;
+        }
 
-            .task-data h5 {
-                margin: 0;
-                color: #ffcc00;
-                font-size: 20px;
-                font-weight: bold;
-            }
+        .task-data h5 {
+            margin: 0;
+            color: #ffcc00;
+            font-size: 20px;
+            font-weight: bold;
+        }
 
         .task-button {
             background-color: #ffffff;
@@ -90,9 +108,9 @@
             transition: background-color 0.3s ease;
         }
 
-            .task-button:hover {
-                background-color: #2dd60c;
-            }
+        .task-button:hover {
+            background-color: #2dd60c;
+        }
 
         @media (max-width: 600px) {
             .task-container {
@@ -113,22 +131,24 @@
 <body>
     <h2><b>🏆</b></h2>
 
+    <h1 class="animated-text">🥇🥈🥉 1st, 2nd, 3rd place winners will receive these prizes! 🎁</h1>
+
     <div id="balance-container">
-        <span id="balance">0</span> Total Mobile Phone
+        <span id="balance">0</span> Total X Phone
     </div>
     <br>
 
     <h2><u><b>🏆 Our Mission 🏆</b></u></h2>
 
     <div class="task-container">
-        <!-- 1st Prize - iPhone Pro Max Gift -->
+        <!-- 1st Prize - iPhone 15 Pro Max -->
         <div class="task">
             <div class="task-detail">
                 <div class="task-image">
                     <img src="material/images/logo.png" width="50px" alt="">
                 </div>
                 <div>
-                    <h4>1st - iPhone Pro Max Gift</h4>
+                    <h4>1st - iPhone 15 Pro Max</h4>
                     <div class="task-data">
                         <img src="material/images/logo.png" width="20px" alt="Coin Icon">
                         <h5>100,000,000000+</h5>
@@ -137,14 +157,14 @@
             </div>
         </div>
 
-        <!-- 2nd Prize - iPhone -->
+        <!-- 2nd Prize - Samsung Galaxy S24 Ultra -->
         <div class="task">
             <div class="task-detail">
                 <div class="task-image">
                     <img src="material/images/logo.png" width="50px" alt="">
                 </div>
                 <div>
-                    <h4>2nd - iPhone</h4>
+                    <h4>2nd - Samsung Galaxy S24 Ultra</h4>
                     <div class="task-data">
                         <img src="material/images/logo.png" width="20px" alt="Coin Icon">
                         <h5>200,000,00000+</h5>
@@ -153,14 +173,14 @@
             </div>
         </div>
 
-        <!-- 3rd Prize - Premium Smartphone -->
+        <!-- 3rd Prize - Huawei Mate 60 Pro+ -->
         <div class="task">
             <div class="task-detail">
                 <div class="task-image">
                     <img src="material/images/logo.png" width="50px" alt="">
                 </div>
                 <div>
-                    <h4>3rd - Premium Smartphone</h4>
+                    <h4>3rd - Huawei Mate 60 Pro+</h4>
                     <div class="task-data">
                         <img src="material/images/logo.png" width="20px" alt="Coin Icon">
                         <h5>300,000,0000+</h5>
