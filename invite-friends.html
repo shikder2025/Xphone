@@ -63,6 +63,7 @@
             color: #ecf0f1;
             font-size: 14px;
             padding: 5px 0;
+            pointer-events: auto; /* Enables normal click events */
         }
 
         .nav-item i {
@@ -72,6 +73,10 @@
 
         .nav-item:hover {
             color: #2ecc71;
+        }
+
+        .nav-item:active {
+            pointer-events: none; /* Prevents long press from doing anything */
         }
 
         .toast {
@@ -105,23 +110,23 @@
     </div>
 
     <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">
+        <a href="home.html" class="nav-item" onmousedown="preventLongPress(event)">
             <i class="fas fa-home"></i>
             <span>HOME</span>
         </a>
-        <a href="leaderboard.html" class="nav-item">
+        <a href="leaderboard.html" class="nav-item" onmousedown="preventLongPress(event)">
             <i class="fas fa-trophy"></i>
             <span>LEADERBOARD</span>
         </a>
-        <a href="invite-friends.html" class="nav-item">
+        <a href="invite-friends.html" class="nav-item" onmousedown="preventLongPress(event)">
             <i class="fas fa-user-friends"></i>
             <span>FRIENDS</span>
         </a>
-        <a href="task.html" class="nav-item">
+        <a href="task.html" class="nav-item" onmousedown="preventLongPress(event)">
             <i class="fas fa-tasks"></i>
             <span>TASKS</span>
         </a>
-        <a href="balance.html" class="nav-item">
+        <a href="balance.html" class="nav-item" onmousedown="preventLongPress(event)">
             <i class="fas fa-wallet"></i>
             <span>BALANCE</span>
         </a>
@@ -135,6 +140,12 @@
             }).catch(err => {
                 showToast("Failed to copy: " + err);
             });
+        }
+
+        function preventLongPress(event) {
+            if (event.type === 'mousedown') {
+                event.preventDefault();
+            }
         }
 
         function showToast(message) {
