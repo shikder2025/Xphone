@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="material/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #balance-container {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        .task-container {
+            margin: 10px auto;
+            max-width: 600px;
+        }
+
+        .task {
+            margin: 10px auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #000000;
+            border-radius: 12px;
+            background-color: #333030;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            width: 80%;
+        }
+
+            .task:hover {
+                transform: translateY(-5px);
+            }
+
+        .task-detail {
+            display: flex;
+            align-items: center;
+        }
+
+        .task-image img {
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .task h4 {
+            margin: 0;
+            font-size: 18px;
+            color: #f2f2f2;
+        }
+
+        .task-data {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+            .task-data img {
+                margin-right: 5px;
+            }
+
+            .task-data h5 {
+                margin: 0;
+                color: #ffcc00;
+                font-size: 18px;
+            }
+
+        .task-button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+            .task-button:hover {
+                background-color: #2dd60c;
+            }
+
+        @media (max-width: 600px) {
+            .task-container {
+                max-width: 100%;
+            }
+
+            .task-button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .task h4 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2><b>🏆</b></h2>
+    <br>
+
+    <h2><b><u>About Us</u></b></h2>
+
+    <h3>
+        Welcome to Mobile Phone! 💰<br><br>
+        At Mobile Phone, we’re all about making productivity fun and rewarding! 🎯💪
+        <br><br>
+        With the power of "Mobile Phone", users can complete tasks, earn rewards, and unlock amazing benefits. 🏆✨<br><br>
+        Our platform is fully verified by Telegram 🔒, and it integrates seamlessly with your TON wallet, ensuring a hassle-free withdrawal of your hard-earned coins. 💳💸<br><br>
+        Join the Mobile Phone community today! 🚀 Start completing tasks, earning rewards, and achieving your goals with us! 🎉
+    </h3>
+
+    <div style="text-align:center; margin-top: 30px;">
+        <i class="fas fa-mobile-alt" style="font-size: 50px; color: #ffcc00;"></i>
+        <h3 style="color: #ffcc00;">Get Started with Your Mobile Phone Now!</h3>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>HOME</span>
+        </a>
+        <a href="leaderboard.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>LEADERBOARD</span>
+        </a>
+        <a href="invite-friends.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>FRIENDS</span>
+        </a>
+        <a href="task.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>TASKS</span>
+        </a>
+        <a href="balance.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>BALANCE</span>
+        </a>
+    </nav>
+
+    <script src="material/js/js.js"></script>
+    <script src="material/js/main.js"></script>
+</body>
+</html>

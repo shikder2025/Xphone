@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="material/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1d1d1d;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #balance-container {
+            margin: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .task-container {
+            margin: 20px auto;
+            max-width: 700px;
+        }
+
+        .task {
+            margin: 15px auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #222222;
+            border-radius: 12px;
+            background-color: #333333;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            width: 90%;
+        }
+
+            .task:hover {
+                transform: translateY(-8px);
+            }
+
+        .task-detail {
+            display: flex;
+            align-items: center;
+        }
+
+        .task-image img {
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .task h4 {
+            margin: 0;
+            font-size: 20px;
+            color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .task-data {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+            .task-data img {
+                margin-right: 8px;
+            }
+
+            .task-data h5 {
+                margin: 0;
+                color: #ffcc00;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+        .task-button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+            .task-button:hover {
+                background-color: #2dd60c;
+            }
+
+        @media (max-width: 600px) {
+            .task-container {
+                max-width: 100%;
+            }
+
+            .task-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .task h4 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2><b>🏆</b></h2>
+
+    <div id="balance-container">
+        <span id="balance">0</span> Total Mobile Phone
+    </div>
+    <br>
+
+    <h2><u><b>🏆 Our Mission 🏆</b></u></h2>
+
+    <div class="task-container">
+        <!-- 1st Prize - iPhone Pro Max Gift -->
+        <div class="task">
+            <div class="task-detail">
+                <div class="task-image">
+                    <img src="material/images/logo.png" width="50px" alt="">
+                </div>
+                <div>
+                    <h4>1st - iPhone Pro Max Gift</h4>
+                    <div class="task-data">
+                        <img src="material/images/logo.png" width="20px" alt="Coin Icon">
+                        <h5>100,000,000000+</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2nd Prize - iPhone -->
+        <div class="task">
+            <div class="task-detail">
+                <div class="task-image">
+                    <img src="material/images/logo.png" width="50px" alt="">
+                </div>
+                <div>
+                    <h4>2nd - iPhone</h4>
+                    <div class="task-data">
+                        <img src="material/images/logo.png" width="20px" alt="Coin Icon">
+                        <h5>200,000,00000+</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3rd Prize - Premium Smartphone -->
+        <div class="task">
+            <div class="task-detail">
+                <div class="task-image">
+                    <img src="material/images/logo.png" width="50px" alt="">
+                </div>
+                <div>
+                    <h4>3rd - Premium Smartphone</h4>
+                    <div class="task-data">
+                        <img src="material/images/logo.png" width="20px" alt="Coin Icon">
+                        <h5>300,000,0000+</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>HOME</span>
+        </a>
+        <a href="leaderboard.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>LEADERBOARD</span>
+        </a>
+        <a href="invite-friends.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>FRIENDS</span>
+        </a>
+        <a href="task.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>TASKS</span>
+        </a>
+        <a href="balance.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>BALANCE</span>
+        </a>
+    </nav>
+</body>
+</html>

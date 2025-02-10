@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="material/css/styles.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #0a0a0a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2, h3 {
+            margin: 0;
+            padding: 10px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        h4, h5 {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /* Balance and Wallet Info */
+        #balance-container {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        #balance {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+
+        .task-container {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #2c3e50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .task:hover {
+                transform: translateY(-5px);
+            }
+
+        .task-detail {
+            display: flex;
+            align-items: center;
+        }
+
+        .task-image img {
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .task h4 {
+            color: #ecf0f1;
+            font-size: 1.1rem;
+        }
+
+        .task-data {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+            .task-data img {
+                margin-right: 8px;
+            }
+
+            .task-data h5 {
+                color: #ffcc00;
+                font-size: 1.2rem;
+            }
+
+        /* Button Styling */
+        .task-button {
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .task-button:hover {
+                background-color: #16a085;
+            }
+
+        /* Navigation Styling */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #34495e;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #ecf0f1;
+            font-size: 14px;
+            padding: 5px 0;
+        }
+
+            .nav-item i {
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+
+            .nav-item:hover {
+                color: #2ecc71;
+            }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .task-container {
+                max-width: 95%;
+            }
+
+            .task-button {
+                font-size: 1rem;
+                padding: 10px 18px;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Balance Section -->
+    <div id="balance-container">
+        <h2>💸 Total Mobile Phone</h2>
+        <span id="balance">0</span> Mobile phone
+    </div>
+
+    <!-- Coming Soon Message -->
+    <h2><b>Coming Soon!!</b></h2>
+    <h3>Stay tuned for more exciting features!</h3>
+
+    <!-- Details Link -->
+    <a href="detail.html" class="nav-item">
+        <i class="fas fa-info-circle"></i>
+        <span>Details</span>
+    </a>
+
+    <!-- Task Section -->
+    <div class="task-container">
+        <div class="task">
+            <div class="task-detail">
+                <div class="task-image">
+                    <img src="material/images/ton.png" width="45px" alt="Wallet Icon">
+                </div>
+                <div>
+                    <h4>Link Your Wallet</h4>
+                    <div class="task-data">
+                        <img src="material/images/logo.png" width="20px" alt="Coin Icon">
+                        <h5>💳</h5>
+                    </div>
+                </div>
+            </div>
+            <button class="task-button" onclick="window.location.href='wat.html'">Connect</button>
+        </div>
+    </div>
+
+    <!-- Coin Logo -->
+    <div>
+        <img src="material/images/logo.png" width="50%" alt="Logo">
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="leaderboard.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>Leaderboard</span>
+        </a>
+        <a href="invite-friends.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>Friends</span>
+        </a>
+        <a href="task.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>Tasks</span>
+        </a>
+        <a href="balance.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>Balance</span>
+        </a>
+    </nav>
+
+    <script src="material/js/js.js"></script>
+    <script src="material/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="material/css/styles.css">
+    <link rel="stylesheet" href="material/css/st.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        .frens-invite-button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; /* Center the button */
+        }
+
+        input#link {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #ecf0f1;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            color: #2c3e50;
+            text-align: center;
+            cursor: not-allowed;
+        }
+
+        button#copyButton {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            button#copyButton:hover {
+                background-color: #16a085;
+            }
+
+        .telegram-info {
+            margin-top: 20px;
+            color: #f39c12;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #34495e;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #ecf0f1;
+            font-size: 14px;
+            padding: 5px 0;
+        }
+
+            .nav-item i {
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+
+            .nav-item:hover {
+                color: #2ecc71;
+            }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            button#copyButton {
+                padding: 10px 15px;
+            }
+
+            input#link {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Invite Friends</h2>
+        <p>Share the link and earn rewards!</p>
+
+        <div class="frens-invite-button">
+            <!-- Button centered here -->
+            <button id="copyButton" onclick="copyLink()">Copy Link</button>
+        </div>
+
+        <div class="telegram-info">
+            Your referral link is ready to be shared!
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>HOME</span>
+        </a>
+        <a href="leaderboard.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>LEADERBOARD</span>
+        </a>
+        <a href="invite-friends.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>FRIENDS</span>
+        </a>
+        <a href="task.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>TASKS</span>
+        </a>
+        <a href="balance.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>BALANCE</span>
+        </a>
+    </nav>
+
+    <script>
+        function copyLink() {
+            const link = "https://t.me/Mobilephoneminingbot"; // Static bot link
+            navigator.clipboard.writeText(link).then(() => {
+                alert("Referral link copied!");
+            }).catch(err => {
+                alert("Failed to copy: " + err);
+            });
+        }
+    </script>
+</body>
+</html>
