@@ -36,7 +36,7 @@
         .frens-invite-button {
             margin-top: 20px;
             display: flex;
-            justify-content: center; /* Center the button */
+            justify-content: center;
         }
 
         input#link {
@@ -63,9 +63,9 @@
             transition: background-color 0.3s;
         }
 
-            button#copyButton:hover {
-                background-color: #16a085;
-            }
+        button#copyButton:hover {
+            background-color: #16a085;
+        }
 
         .telegram-info {
             margin-top: 20px;
@@ -92,14 +92,14 @@
             padding: 5px 0;
         }
 
-            .nav-item i {
-                font-size: 20px;
-                margin-bottom: 5px;
-            }
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
 
-            .nav-item:hover {
-                color: #2ecc71;
-            }
+        .nav-item:hover {
+            color: #2ecc71;
+        }
 
         @media (max-width: 600px) {
             .container {
@@ -122,7 +122,6 @@
         <p>Share the link and earn rewards!</p>
 
         <div class="frens-invite-button">
-            <!-- Button centered here -->
             <button id="copyButton" onclick="copyLink()">Copy Link</button>
         </div>
 
@@ -156,7 +155,7 @@
 
     <script>
         function copyLink() {
-            const link = "https://t.me/Mobilephoneminingbot"; // Static bot link
+            const link = "https://t.me/Phonexminingbot/Xphone"; // নতুন লিংক
             navigator.clipboard.writeText(link).then(() => {
                 alert("Referral link copied!");
             }).catch(err => {
