@@ -15,6 +15,10 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            user-select: none; /* Text selection disable */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .container {
@@ -63,6 +67,7 @@
             color: #ecf0f1;
             font-size: 14px;
             padding: 5px 0;
+            text-decoration: none;
         }
 
         .nav-item i {
@@ -105,23 +110,23 @@
     </div>
 
     <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">
+        <a href="home.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
             <i class="fas fa-home"></i>
             <span>HOME</span>
         </a>
-        <a href="leaderboard.html" class="nav-item">
+        <a href="leaderboard.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
             <i class="fas fa-trophy"></i>
             <span>LEADERBOARD</span>
         </a>
-        <a href="invite-friends.html" class="nav-item">
+        <a href="invite-friends.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
             <i class="fas fa-user-friends"></i>
             <span>FRIENDS</span>
         </a>
-        <a href="task.html" class="nav-item">
+        <a href="task.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
             <i class="fas fa-tasks"></i>
             <span>TASKS</span>
         </a>
-        <a href="balance.html" class="nav-item">
+        <a href="balance.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
             <i class="fas fa-wallet"></i>
             <span>BALANCE</span>
         </a>
@@ -133,7 +138,13 @@
             navigator.clipboard.writeText(link).then(() => {
                 showToast("Referral link copied!");
             }).catch(err => {
-                showToast("Failed to copy: " + err);
+                let input = document.createElement("input");
+                input.value = link;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("copy");
+                document.body.removeChild(input);
+                showToast("Referral link copied (fallback method)!");
             });
         }
 
@@ -152,9 +163,9 @@
             }, 3000);
         }
 
-        // 🚀 **Long Press এবং Right Click Disable করা হলো**
+        // 🔒 **Right Click, Copy, Text Select, Inspect Element বন্ধ**
         document.addEventListener("contextmenu", function(event) {
-            event.preventDefault(); // ডান-ক্লিক বন্ধ করবে
+            event.preventDefault();
         });
 
         document.addEventListener("mousedown", function(event) {
@@ -169,6 +180,12 @@
             }, 500); // 0.5 সেকেন্ড ধরে রাখলে ব্লক করবে
 
             event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && (event.key === "u" || event.key === "s" || event.key === "c" || event.key === "p")) {
+                event.preventDefault();
+            }
         });
 
     </script>
