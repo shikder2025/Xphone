@@ -3,131 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Tasks</title>
+    <title>About Us - X Phone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="material/css/styles.css">
     <style>
+        /* Global Styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #000;
+            background-color: #121212;
             color: #fff;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
-        #balance-container {
-            margin: 20px;
-            font-size: 18px;
-        }
-
-        .task-container {
-            margin: 10px auto;
-            max-width: 600px;
-        }
-
-        .task {
-            margin: 10px auto;
+        /* Header Section */
+        #header {
             padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #000000;
-            border-radius: 12px;
-            background-color: #333030;
+            background-color: #1f1f1f;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            width: 80%;
+            border-bottom: 2px solid #ffcc00;
+            text-transform: uppercase;
         }
 
-            .task:hover {
-                transform: translateY(-5px);
-            }
-
-        .task-detail {
-            display: flex;
-            align-items: center;
+        /* About Us Container */
+        .about-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        .task-image img {
-            border-radius: 8px;
-            margin-right: 10px;
+        .about-container h2 {
+            color: #ffcc00;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffcc00;
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
-        .task h4 {
-            margin: 0;
+        .about-container p {
             font-size: 18px;
+            line-height: 1.6;
             color: #f2f2f2;
+            margin-top: 15px;
         }
 
-        .task-data {
+        /* CTA Section */
+        .cta {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #ffcc00;
+            color: #000;
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #d4aa00;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
             display: flex;
-            align-items: center;
-            margin-top: 8px;
+            justify-content: space-around;
+            background-color: #1f1f1f;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
         }
 
-            .task-data img {
-                margin-right: 5px;
-            }
-
-            .task-data h5 {
-                margin: 0;
-                color: #ffcc00;
-                font-size: 18px;
-            }
-
-        .task-button {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
+        .nav-item {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            transition: color 0.3s ease;
         }
 
-            .task-button:hover {
-                background-color: #2dd60c;
-            }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
 
-        @media (max-width: 600px) {
-            .task-container {
-                max-width: 100%;
-            }
+        .nav-item i {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-            .task-button {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-
-            .task h4 {
-                font-size: 16px;
-            }
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <h2><b>🏆</b></h2>
-    <br>
-
-    <h2><b><u>About Us</u></b></h2>
-
-    <h3>
-        Welcome to X Phone! 💰<br><br>
-        At X Phone, we’re all about making productivity fun and rewarding! 🎯💪
-        <br><br>
-        With the power of "X Phone", users can complete tasks, earn rewards, and unlock amazing benefits. 🏆✨<br><br>
-        Our platform is fully verified by Telegram 🔒, and it integrates seamlessly with your TON wallet, ensuring a hassle-free withdrawal of your hard-earned coins. 💳💸<br><br>
-        Join the X Phone community today! 🚀 Start completing tasks, earning rewards, and achieving your goals with us! 🎉
-    </h3>
-
-    <div style="text-align:center; margin-top: 30px;">
-        <i class="fas fa-mobile-alt" style="font-size: 50px; color: #ffcc00;"></i>
-        <h3 style="color: #ffcc00;">Get Started with Your X Phone Now!</h3>
+    <!-- Header -->
+    <div id="header">
+        <h1>🏆 Welcome to X Phone!</h1>
     </div>
 
+    <!-- About Us Section -->
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>🚀 Welcome to X Phone! We’re all about making productivity fun and rewarding! 🎯💪</p>
+        <p>✅ Earn rewards by completing simple tasks and unlock amazing benefits! 🏆✨</p>
+        <p>🔒 Fully verified by Telegram and seamlessly integrated with TON wallet for smooth withdrawals! 💳💸</p>
+        <p>Join the X Phone community today! Start earning and achieving your goals with us! 🎉</p>
+        
+        <a href="task.html" class="cta">Get Started Now</a>
+    </div>
+
+    <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <a href="home.html" class="nav-item">
             <i class="fas fa-home"></i>
@@ -151,7 +148,5 @@
         </a>
     </nav>
 
-    <script src="material/js/js.js"></script>
-    <script src="material/js/main.js"></script>
 </body>
 </html>
