@@ -32,6 +32,7 @@
             text-decoration: none;
             color: #fff;
             font-size: 16px;
+            user-select: none; /* Prevent long press selection */
         }
 
         /* Balance and Wallet Info */
@@ -65,39 +66,9 @@
             transition: transform 0.3s ease-in-out;
         }
 
-            .task:hover {
-                transform: translateY(-5px);
-            }
-
-        .task-detail {
-            display: flex;
-            align-items: center;
+        .task:hover {
+            transform: translateY(-5px);
         }
-
-        .task-image img {
-            border-radius: 8px;
-            margin-right: 15px;
-        }
-
-        .task h4 {
-            color: #ecf0f1;
-            font-size: 1.1rem;
-        }
-
-        .task-data {
-            display: flex;
-            align-items: center;
-            margin-top: 8px;
-        }
-
-            .task-data img {
-                margin-right: 8px;
-            }
-
-            .task-data h5 {
-                color: #ffcc00;
-                font-size: 1.2rem;
-            }
 
         /* Button Styling */
         .task-button {
@@ -111,37 +82,49 @@
             transition: background-color 0.3s ease-in-out;
         }
 
-            .task-button:hover {
-                background-color: #16a085;
-            }
+        .task-button:hover {
+            background-color: #16a085;
+        }
 
-        /* Navigation Styling */
+        /* Bottom Navigation Bar */
         .bottom-nav {
             display: flex;
             justify-content: space-around;
             background-color: #34495e;
-            padding: 10px;
+            padding: 12px;
             position: fixed;
             bottom: 0;
             width: 100%;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            user-select: none; /* Prevent long press */
         }
 
         .nav-item {
             text-align: center;
             color: #ecf0f1;
             font-size: 14px;
-            padding: 5px 0;
+            padding: 10px 0;
+            pointer-events: auto;
         }
 
-            .nav-item i {
-                font-size: 20px;
-                margin-bottom: 5px;
-            }
+        .nav-item i {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
 
-            .nav-item:hover {
-                color: #2ecc71;
-            }
+        .nav-item:hover {
+            color: #2ecc71;
+        }
+
+        /* Disable Long Press on Navigation Items */
+        .nav-item, .nav-item i, .nav-item span {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
         /* Mobile responsiveness */
         @media (max-width: 600px) {
@@ -157,6 +140,14 @@
             h3 {
                 font-size: 1.5rem;
             }
+
+            .bottom-nav {
+                padding: 10px;
+            }
+
+            .nav-item {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -171,12 +162,6 @@
     <!-- Coming Soon Message -->
     <h2><b>Coming Soon!!</b></h2>
     <h3>Stay tuned for more exciting features!</h3>
-
-    <!-- Details Link -->
-    <a href="detail.html" class="nav-item">
-        <i class="fas fa-info-circle"></i>
-        <span>Details</span>
-    </a>
 
     <!-- Task Section -->
     <div class="task-container">
@@ -228,5 +213,25 @@
 
     <script src="material/js/js.js"></script>
     <script src="material/js/main.js"></script>
+
+    <script>
+        // Prevent long press menu pop-up
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("mousedown", function (e) {
+            if (e.button === 2) { 
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener("touchstart", function (e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
 </body>
 </html>
