@@ -50,27 +50,29 @@
             background-color: #16a085;
         }
 
+        /* Bottom Navigation Bar */
         .bottom-nav {
             display: flex;
             justify-content: space-around;
             background-color: #34495e;
-            padding: 10px;
+            padding: 12px;
             position: fixed;
             bottom: 0;
             width: 100%;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            user-select: none;
         }
 
         .nav-item {
             text-align: center;
             color: #ecf0f1;
             font-size: 14px;
-            padding: 5px 0;
-            text-decoration: none;
+            padding: 10px 0;
+            pointer-events: auto;
         }
 
         .nav-item i {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 5px;
         }
 
@@ -78,6 +80,7 @@
             color: #2ecc71;
         }
 
+        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -96,6 +99,26 @@
         .toast.show {
             opacity: 1;
         }
+
+        /* Disable Long Press & Selection */
+        .nav-item, .nav-item i, .nav-item span {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (max-width: 600px) {
+            .bottom-nav {
+                padding: 10px;
+            }
+
+            .nav-item {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -108,6 +131,7 @@
         </div>
     </div>
 
+    <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
         <a href="home.html" class="nav-item">
             <i class="fas fa-home"></i>
@@ -156,7 +180,7 @@
             }, 3000);
         }
 
-        // 🚀 **Long Press এবং Right Click Disable করা হলো**
+        // **Disable Long Press & Right Click**
         document.addEventListener("contextmenu", function(event) {
             event.preventDefault(); // ডান-ক্লিক বন্ধ করবে
         });
@@ -175,7 +199,7 @@
             event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
         });
 
-        // **Long Press + Drag Selection Disable**
+        // **Disable Text Selection & Drag**
         document.addEventListener("selectstart", function(event) {
             event.preventDefault();
         });
