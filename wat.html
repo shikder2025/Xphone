@@ -6,6 +6,7 @@
     <title>TON Wallet Connection</title>
     <link rel="stylesheet" href="material/css/w.css">
     <style>
+        /* Page Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
@@ -14,6 +15,7 @@
             padding: 0;
         }
 
+        /* Wallet Button */
         .open-button {
             background-color: #ff6600;
             color: white;
@@ -26,10 +28,11 @@
             transition: background-color 0.3s ease;
         }
 
-            .open-button:hover {
-                background-color: #e65c00;
-            }
+        .open-button:hover {
+            background-color: #e65c00;
+        }
 
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -50,8 +53,10 @@
             width: 80%;
             max-width: 500px;
             text-align: center;
+            position: relative;
         }
 
+        /* Close Button */
         .close-btn {
             color: #fff;
             font-size: 24px;
@@ -62,6 +67,7 @@
             cursor: pointer;
         }
 
+        /* Buttons */
         .wallet-btn, .cancel-btn {
             background-color: #00b33c;
             color: white;
@@ -74,9 +80,9 @@
             transition: background-color 0.3s ease;
         }
 
-            .wallet-btn:hover, .cancel-btn:hover {
-                background-color: #009933;
-            }
+        .wallet-btn:hover, .cancel-btn:hover {
+            background-color: #009933;
+        }
 
         .status {
             margin-top: 20px;
@@ -89,6 +95,15 @@
             color: #f2f2f2;
             font-weight: bold;
             margin-top: 20px;
+        }
+
+        /* 🔥 Long Press Disable CSS */
+        body, button, .modal, .modal-content {
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none;
         }
     </style>
 </head>
@@ -120,20 +135,37 @@
 
     <script src="material/js/w.js"></script>
     <script>
-        // Modal open button event listener
+        // 🔥 Modal Open
         document.getElementById("openModalBtn").onclick = function() {
             document.getElementById("walletModal").style.display = "block";
         };
 
-        // Modal close button event listener
+        // 🔥 Modal Close
         document.querySelector(".close-btn").onclick = function() {
             document.getElementById("walletModal").style.display = "none";
         };
 
-        // Cancel button event listener
+        // 🔥 Cancel Button Close Modal
         document.getElementById("cancelWallet").onclick = function() {
             document.getElementById("walletModal").style.display = "none";
         };
+
+        // 🔥 Prevent Long Press & Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 🔥 Prevent Multiple Mouse Clicks
+        document.addEventListener('mousedown', function(event) {
+            if (event.detail > 1) {
+                event.preventDefault();
+            }
+        });
+
+        // 🔥 Prevent Multiple Touches (For Mobile)
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        });
     </script>
 
 </body>
