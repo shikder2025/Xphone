@@ -6,6 +6,7 @@
     <title>Complete Tasks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="material/css/styles.css">
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +14,8 @@
             color: #fff;
             margin: 0;
             padding: 0;
+            user-select: none; /* Disable Text Selection */
+            -webkit-user-select: none;
         }
 
         #balance-container {
@@ -42,9 +45,9 @@
             width: 80%;
         }
 
-            .task:hover {
-                transform: translateY(-5px);
-            }
+        .task:hover {
+            transform: translateY(-5px);
+        }
 
         .task-detail {
             display: flex;
@@ -68,15 +71,15 @@
             margin-top: 8px;
         }
 
-            .task-data img {
-                margin-right: 5px;
-            }
+        .task-data img {
+            margin-right: 5px;
+        }
 
-            .task-data h5 {
-                margin: 0;
-                color: #ffcc00;
-                font-size: 18px;
-            }
+        .task-data h5 {
+            margin: 0;
+            color: #ffcc00;
+            font-size: 18px;
+        }
 
         .task-button {
             background-color: #4CAF50;
@@ -89,9 +92,9 @@
             transition: background-color 0.3s ease;
         }
 
-            .task-button:hover {
-                background-color: #45a049;
-            }
+        .task-button:hover {
+            background-color: #45a049;
+        }
 
         .tasks.scrollable {
             max-height: 590px;
@@ -103,6 +106,37 @@
             background-color: #1f1f1f;
         }
 
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #34495e;
+            padding: 12px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            user-select: none;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #ecf0f1;
+            font-size: 14px;
+            padding: 10px 0;
+            pointer-events: auto;
+        }
+
+        .nav-item i {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .nav-item:hover {
+            color: #2ecc71;
+        }
+
+        /* Responsive Design */
         @media (max-width: 600px) {
             .task-container {
                 max-width: 100%;
@@ -123,7 +157,7 @@
     <div id="balance-container">
         <h2><b>_____________</b></h2>
         <h2><b> TASKS </b></h2>
-        <span id="balance">0</span>  🪙 total coins
+        <span id="balance">0</span> 🪙 total coins
     </div>
 
     <section class="tasks scrollable">
@@ -141,32 +175,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- The Claim button now triggers the same task each time it is clicked -->
                 <button class="task-button" onclick="completeTask(100, 'http://www.youtube.com/@mobilephoneofficial')">Claim</button>
             </div>
         </div>
-
-        <div class="task-container">
-            <div class="task">
-                <div class="task-detail">
-                    <div class="task-image">
-                        <img src="material/images/you.gif" width="45px" alt="YouTube">
-                    </div>
-                    <div>
-                        <h4>Subscribe</h4>
-                        <div class="task-data">
-                            <img src="material/images/logo.png" width="20px" alt="Coin Icon">
-                            <h5>100</h5>
-                        </div>
-                    </div>
-                </div>
-                <button class="task-button" onclick="completeTask(100, 'http://www.youtube.com/@mobilephoneofficial')">Claim</button>
-            </div>
-        </div>
-
-        <!-- Repeat for all tasks -->
     </section>
 
+    <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
         <a href="home.html" class="nav-item">
             <i class="fas fa-home"></i>
@@ -192,13 +206,38 @@
 
     <script>
         function completeTask(coins, link) {
-            // Increment the coins by the task's reward value each time it is clicked
             var balance = document.getElementById('balance');
             balance.innerHTML = parseInt(balance.innerHTML) + coins;
-
-            // Optionally, open the task link (e.g., YouTube)
             window.open(link, '_blank');
         }
+
+        // 🚀 **Disable Long Press, Right Click & Selection**
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("mousedown", function(event) {
+            if (event.button === 2) {
+                event.preventDefault();
+            }
+        });
+
+        document.addEventListener("touchstart", function(event) {
+            let timer = setTimeout(() => {
+                event.preventDefault();
+            }, 500);
+
+            event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
+        });
+
+        document.addEventListener("selectstart", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("dragstart", function(event) {
+            event.preventDefault();
+        });
     </script>
+
 </body>
 </html>
