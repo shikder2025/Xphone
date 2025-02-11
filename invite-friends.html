@@ -100,28 +100,28 @@
         <p>Share the link and earn rewards!</p>
 
         <div class="frens-invite-button">
-            <button id="copyButton" onclick="copyLink()" onmousedown="disableLongPress(event)">Copy Link</button>
+            <button id="copyButton" onclick="copyLink()">Copy Link</button>
         </div>
     </div>
 
     <nav class="bottom-nav">
-        <a href="home.html" class="nav-item" onmousedown="disableLongPress(event)" oncontextmenu="return false;">
+        <a href="home.html" class="nav-item">
             <i class="fas fa-home"></i>
             <span>HOME</span>
         </a>
-        <a href="leaderboard.html" class="nav-item" onmousedown="disableLongPress(event)" oncontextmenu="return false;">
+        <a href="leaderboard.html" class="nav-item">
             <i class="fas fa-trophy"></i>
             <span>LEADERBOARD</span>
         </a>
-        <a href="invite-friends.html" class="nav-item" onmousedown="disableLongPress(event)" oncontextmenu="return false;">
+        <a href="invite-friends.html" class="nav-item">
             <i class="fas fa-user-friends"></i>
             <span>FRIENDS</span>
         </a>
-        <a href="task.html" class="nav-item" onmousedown="disableLongPress(event)" oncontextmenu="return false;">
+        <a href="task.html" class="nav-item">
             <i class="fas fa-tasks"></i>
             <span>TASKS</span>
         </a>
-        <a href="balance.html" class="nav-item" onmousedown="disableLongPress(event)" oncontextmenu="return false;">
+        <a href="balance.html" class="nav-item">
             <i class="fas fa-wallet"></i>
             <span>BALANCE</span>
         </a>
@@ -135,11 +135,6 @@
             }).catch(err => {
                 showToast("Failed to copy: " + err);
             });
-        }
-
-        // Disable long press on buttons and links
-        function disableLongPress(event) {
-            event.preventDefault();  // Disables the default long press functionality (right-click or hold)
         }
 
         function showToast(message) {
@@ -156,6 +151,26 @@
                 setTimeout(() => document.body.removeChild(toast), 300);
             }, 3000);
         }
+
+        // 🚀 **Long Press এবং Right Click Disable করা হলো**
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault(); // ডান-ক্লিক বন্ধ করবে
+        });
+
+        document.addEventListener("mousedown", function(event) {
+            if (event.button === 2) {  // Right-click check
+                event.preventDefault();
+            }
+        });
+
+        document.addEventListener("touchstart", function(event) {
+            let timer = setTimeout(() => {
+                event.preventDefault();
+            }, 500); // 0.5 সেকেন্ড ধরে রাখলে ব্লক করবে
+
+            event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
+        });
+
     </script>
 </body>
 </html>
