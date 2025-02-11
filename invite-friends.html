@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Friends</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -15,10 +16,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            user-select: none; /* Text selection disable */
+            user-select: none; /* Text Selection Disable */
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
         }
 
         .container {
@@ -100,33 +99,33 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <h2>Invite Friends</h2>
         <p>Share the link and earn rewards!</p>
-
         <div class="frens-invite-button">
             <button id="copyButton" onclick="copyLink()">Copy Link</button>
         </div>
     </div>
 
     <nav class="bottom-nav">
-        <a href="home.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
+        <a href="home.html" class="nav-item">
             <i class="fas fa-home"></i>
             <span>HOME</span>
         </a>
-        <a href="leaderboard.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
+        <a href="leaderboard.html" class="nav-item">
             <i class="fas fa-trophy"></i>
             <span>LEADERBOARD</span>
         </a>
-        <a href="invite-friends.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
+        <a href="invite-friends.html" class="nav-item">
             <i class="fas fa-user-friends"></i>
             <span>FRIENDS</span>
         </a>
-        <a href="task.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
+        <a href="task.html" class="nav-item">
             <i class="fas fa-tasks"></i>
             <span>TASKS</span>
         </a>
-        <a href="balance.html" class="nav-item" onmousedown="return false;" oncontextmenu="return false;">
+        <a href="balance.html" class="nav-item">
             <i class="fas fa-wallet"></i>
             <span>BALANCE</span>
         </a>
@@ -138,13 +137,7 @@
             navigator.clipboard.writeText(link).then(() => {
                 showToast("Referral link copied!");
             }).catch(err => {
-                let input = document.createElement("input");
-                input.value = link;
-                document.body.appendChild(input);
-                input.select();
-                document.execCommand("copy");
-                document.body.removeChild(input);
-                showToast("Referral link copied (fallback method)!");
+                showToast("Failed to copy: " + err);
             });
         }
 
@@ -163,9 +156,9 @@
             }, 3000);
         }
 
-        // 🔒 **Right Click, Copy, Text Select, Inspect Element বন্ধ**
+        // 🚀 **Long Press এবং Right Click Disable করা হলো**
         document.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
+            event.preventDefault(); // ডান-ক্লিক বন্ধ করবে
         });
 
         document.addEventListener("mousedown", function(event) {
@@ -182,12 +175,15 @@
             event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
         });
 
-        document.addEventListener("keydown", function(event) {
-            if (event.ctrlKey && (event.key === "u" || event.key === "s" || event.key === "c" || event.key === "p")) {
-                event.preventDefault();
-            }
+        // **Long Press + Drag Selection Disable**
+        document.addEventListener("selectstart", function(event) {
+            event.preventDefault();
         });
 
+        document.addEventListener("dragstart", function(event) {
+            event.preventDefault();
+        });
     </script>
+
 </body>
 </html>
