@@ -1,12 +1,10 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Tasks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="material/css/styles.css">
-    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,8 +12,17 @@
             color: #fff;
             margin: 0;
             padding: 0;
-            user-select: none; /* Disable Text Selection */
-            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #announcement {
+            text-align: center;
+            background-color: #ffcc00;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border-bottom: 3px solid #ff9900;
         }
 
         #balance-container {
@@ -40,8 +47,6 @@
             border: 1px solid #444;
             border-radius: 12px;
             background-color: #1f1f1f;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
             width: 80%;
         }
 
@@ -62,23 +67,6 @@
         .task h4 {
             margin: 0;
             font-size: 20px;
-            color: #fff;
-        }
-
-        .task-data {
-            display: flex;
-            align-items: center;
-            margin-top: 8px;
-        }
-
-        .task-data img {
-            margin-right: 5px;
-        }
-
-        .task-data h5 {
-            margin: 0;
-            color: #ffcc00;
-            font-size: 18px;
         }
 
         .task-button {
@@ -89,7 +77,6 @@
             font-size: 16px;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
         }
 
         .task-button:hover {
@@ -106,7 +93,6 @@
             background-color: #1f1f1f;
         }
 
-        /* Bottom Navigation Bar */
         .bottom-nav {
             display: flex;
             justify-content: space-around;
@@ -115,8 +101,6 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-            user-select: none;
         }
 
         .nav-item {
@@ -124,36 +108,17 @@
             color: #ecf0f1;
             font-size: 14px;
             padding: 10px 0;
-            pointer-events: auto;
-        }
-
-        .nav-item i {
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .nav-item:hover {
-            color: #2ecc71;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .task-container {
-                max-width: 100%;
-            }
-
-            .task-button {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-
-            .task h4 {
-                font-size: 18px;
-            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Announcement Section -->
+    <div id="announcement">
+        🔥 **On March 1, 2025, you will see how many coins you have earned!** 🔥  
+        Complete tasks now and earn more rewards!
+    </div>
+
     <div id="balance-container">
         <h2><b>_____________</b></h2>
         <h2><b> TASKS </b></h2>
@@ -165,7 +130,7 @@
             <div class="task">
                 <div class="task-detail">
                     <div class="task-image">
-                        <img src="https://github.com/shikder2025/Xphone/blob/main/material/images/tele.png?raw=true" width="45px" alt="Telegram">
+                        <img src="material/images/tele.png" width="45px" alt="Telegram">
                     </div>
                     <div>
                         <h4>Join our Telegram Channel</h4>
@@ -182,26 +147,11 @@
 
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>HOME</span>
-        </a>
-        <a href="leaderboard.html" class="nav-item">
-            <i class="fas fa-trophy"></i>
-            <span>LEADERBOARD</span>
-        </a>
-        <a href="invite-friends.html" class="nav-item">
-            <i class="fas fa-user-friends"></i>
-            <span>FRIENDS</span>
-        </a>
-        <a href="task.html" class="nav-item">
-            <i class="fas fa-tasks"></i>
-            <span>TASKS</span>
-        </a>
-        <a href="balance.html" class="nav-item">
-            <i class="fas fa-wallet"></i>
-            <span>BALANCE</span>
-        </a>
+        <a href="home.html" class="nav-item">🏠 HOME</a>
+        <a href="leaderboard.html" class="nav-item">🏆 LEADERBOARD</a>
+        <a href="invite-friends.html" class="nav-item">👥 FRIENDS</a>
+        <a href="task.html" class="nav-item">📋 TASKS</a>
+        <a href="balance.html" class="nav-item">💰 BALANCE</a>
     </nav>
 
     <script>
@@ -210,33 +160,6 @@
             balance.innerHTML = parseInt(balance.innerHTML) + coins;
             window.open(link, '_blank');
         }
-
-        // 🚀 **Disable Long Press, Right Click & Selection**
-        document.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
-        });
-
-        document.addEventListener("mousedown", function(event) {
-            if (event.button === 2) {
-                event.preventDefault();
-            }
-        });
-
-        document.addEventListener("touchstart", function(event) {
-            let timer = setTimeout(() => {
-                event.preventDefault();
-            }, 500);
-
-            event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
-        });
-
-        document.addEventListener("selectstart", function(event) {
-            event.preventDefault();
-        });
-
-        document.addEventListener("dragstart", function(event) {
-            event.preventDefault();
-        });
     </script>
 
 </body>
