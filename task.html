@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Tasks</title>
-
+    <title>XPhone Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,12 +17,12 @@
 
         #announcement {
             text-align: center;
-            background-color: #ffcc00;
-            color: #000;
+            background-color: #ff4d4d;
+            color: #fff;
             font-size: 18px;
             font-weight: bold;
             padding: 15px;
-            border-bottom: 3px solid #ff9900;
+            border-bottom: 3px solid #ff1a1a;
         }
 
         #balance-container {
@@ -93,6 +93,7 @@
             background-color: #1f1f1f;
         }
 
+        /* Bottom Navigation Bar (Updated) */
         .bottom-nav {
             display: flex;
             justify-content: space-around;
@@ -101,6 +102,8 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            user-select: none;
         }
 
         .nav-item {
@@ -108,12 +111,32 @@
             color: #ecf0f1;
             font-size: 14px;
             padding: 10px 0;
+            pointer-events: auto;
         }
 
-        /* Mobile responsiveness */
+        .nav-item i {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .nav-item:hover {
+            color: #2ecc71;
+        }
+
+        /* Prevent Long Press on Navigation Items */
+        .nav-item, .nav-item i, .nav-item span {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 600px) {
             .bottom-nav {
-                padding: 8px;
+                padding: 10px;
             }
 
             .nav-item {
@@ -126,8 +149,7 @@
 
     <!-- Announcement Section -->
     <div id="announcement">
-        🔥 **On March 1, 2025, you will see how many coins you have earned!** 🔥  
-        Complete tasks now and earn more rewards!
+        ⏳ **On March 1, 2025, you will see how many coins you have earned!** ⏳  
     </div>
 
     <div id="balance-container">
@@ -158,11 +180,26 @@
 
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">🏠 HOME</a>
-        <a href="leaderboard.html" class="nav-item">🏆 LEADERBOARD</a>
-        <a href="invite-friends.html" class="nav-item">👥 FRIENDS</a>
-        <a href="task.html" class="nav-item">📋 TASKS</a>
-        <a href="balance.html" class="nav-item">💰 BALANCE</a>
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>HOME</span>
+        </a>
+        <a href="leaderboard.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>LEADERBOARD</span>
+        </a>
+        <a href="invite-friends.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>FRIENDS</span>
+        </a>
+        <a href="task.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>TASKS</span>
+        </a>
+        <a href="balance.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>BALANCE</span>
+        </a>
     </nav>
 
     <script>
@@ -171,6 +208,23 @@
             balance.innerHTML = parseInt(balance.innerHTML) + coins;
             window.open(link, '_blank');
         }
+
+        // Prevent long press menu pop-up
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("mousedown", function (e) {
+            if (e.button === 2) { 
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener("touchstart", function (e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        });
     </script>
 
 </body>
