@@ -7,47 +7,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #000000;  /* Dark black */
+            background-color: #121212;  /* Dark Background */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            user-select: none; /* Text Selection Disable */
-            -webkit-user-select: none;
+            color: #ecf0f1;  /* Light Text */
+            user-select: none; /* Disable Text Selection */
         }
 
         .container {
             max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            padding: 30px;
+            background-color: #1f1f1f;  /* Dark container */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             text-align: center;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
         }
 
         h2 {
-            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 600;
         }
 
-        button#copyButton {
-            margin-top: 15px;
-            padding: 12px 20px;
-            background-color: #1abc9c;
+        .copy-button {
+            padding: 12px 28px;
+            background-color: #3498db;
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        button#copyButton:hover {
-            background-color: #16a085;
+        .copy-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        .copy-button:active {
+            background-color: #2980b9;
+            transform: translateY(1px);
         }
 
         /* Bottom Navigation Bar */
@@ -55,24 +70,24 @@
             display: flex;
             justify-content: space-around;
             background-color: #34495e;
-            padding: 12px;
+            padding: 14px 20px;
             position: fixed;
             bottom: 0;
             width: 100%;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-            user-select: none;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
         .nav-item {
             text-align: center;
             color: #ecf0f1;
-            font-size: 14px;
+            font-size: 16px;
             padding: 10px 0;
-            pointer-events: auto;
+            transition: color 0.3s;
         }
 
         .nav-item i {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 5px;
         }
 
@@ -86,11 +101,11 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #1abc9c;
+            background-color: #2ecc71;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             opacity: 0;
             transition: opacity 0.3s;
@@ -100,23 +115,22 @@
             opacity: 1;
         }
 
-        /* Disable Long Press & Selection */
+        /* Prevent Right-Click & Text Selection */
         .nav-item, .nav-item i, .nav-item span {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
         }
 
         @media (max-width: 600px) {
             .bottom-nav {
-                padding: 10px;
+                padding: 10px 15px;
             }
 
             .nav-item {
-                font-size: 12px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -124,10 +138,9 @@
 <body>
 
     <div class="container">
-        <h2>Invite Friends</h2>
-        <p>Share the link and earn rewards!</p>
-        <div class="frens-invite-button">
-            <button id="copyButton" onclick="copyLink()">Copy Link</button>
+        <h2>Share Link</h2>
+        <div class="copy-button-wrapper">
+            <button class="copy-button" id="copyButton" onclick="copyLink()">Copy Link</button>
         </div>
     </div>
 
@@ -182,7 +195,7 @@
 
         // **Disable Long Press & Right Click**
         document.addEventListener("contextmenu", function(event) {
-            event.preventDefault(); // ডান-ক্লিক বন্ধ করবে
+            event.preventDefault(); // Disable right-click
         });
 
         document.addEventListener("mousedown", function(event) {
@@ -194,7 +207,7 @@
         document.addEventListener("touchstart", function(event) {
             let timer = setTimeout(() => {
                 event.preventDefault();
-            }, 500); // 0.5 সেকেন্ড ধরে রাখলে ব্লক করবে
+            }, 500); // Disable long press after 0.5 seconds
 
             event.target.addEventListener("touchend", () => clearTimeout(timer), { once: true });
         });
